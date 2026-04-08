@@ -2,7 +2,8 @@
 
 A merged bow overhaul for Monster Hunter Wilds that combines the best features of [Better Bow](https://www.nexusmods.com/monsterhunterwilds/mods/539) and [Bow Plus Plus](https://www.nexusmods.com/monsterhunterwilds/mods/1905) into a single, conflict-free mod. Includes an integrated [AutoDodge](https://www.nexusmods.com/monsterhunterwilds/mods/32) wrapper with persistent English configuration.
 
-![Cover](Cover.png)
+<img width="4847" height="3823" alt="Bow_1" src="https://github.com/user-attachments/assets/fe2c49a9-48c2-4d73-9f21-ff9b35ad0142" />
+
 
 Both Better Bow and Bow Plus Plus modify the same game file (`Wp11GlobalActionParam.user.3`), which means they conflict when loaded together through Fluffy Mod Manager. This project solves that by merging their changes at the parameter level using MHWS Editor scripting, producing a single file that carries all features from both mods with additional quality of life boosts on top.
 
