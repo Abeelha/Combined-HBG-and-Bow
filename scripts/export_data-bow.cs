@@ -3,8 +3,8 @@ var sb = new System.Text.StringBuilder();
 sb.AppendLine("{");
 DumpObj(sb, root, 1);
 sb.AppendLine("}");
-File.WriteAllText(@"C:\Users\Abeelha\Desktop\mods\export.json", sb.ToString());
-System.Windows.MessageBox.Show("Done! Saved to Desktop\\mods\\export.json");
+File.WriteAllText(@"C:\Users\Abeelha\Documents\github\Combined-Better-Bow-Bow-Autododge\export-bow.json", sb.ToString());
+System.Windows.MessageBox.Show("Done! Saved");
 }
 
 static void DumpObj(System.Text.StringBuilder sb, object obj, int d) {
