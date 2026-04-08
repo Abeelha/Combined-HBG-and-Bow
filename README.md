@@ -1,4 +1,4 @@
-# Apex Bow
+# Combined-BetterBow-Bow++-Autododge
 
 A merged bow overhaul for Monster Hunter Wilds that combines the best features of [Better Bow](https://www.nexusmods.com/monsterhunterwilds/mods/539) and [Bow Plus Plus](https://www.nexusmods.com/monsterhunterwilds/mods/1905) into a single, conflict-free mod. Includes an integrated [AutoDodge](https://www.nexusmods.com/monsterhunterwilds/mods/32) wrapper with persistent English configuration.
 
@@ -13,7 +13,7 @@ This repo also serves as a reference for anyone looking to merge two conflicting
 1. Download the `release/` folder contents.
 2. Place `natives/` and `reframework/` inside your Fluffy Mod Manager mods directory as a single mod.
 3. Disable the standalone Better Bow, Bow Plus Plus, and AutoDodge mods to avoid conflicts.
-4. Enable Apex Bow.
+4. Enable Combined-BetterBow-Bow++-Autododge.
 
 Requires [REFramework](https://www.nexusmods.com/monsterhunterwilds/mods/1) and LooseFileLoader to be active.
 
