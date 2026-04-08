@@ -1,26 +1,29 @@
-# [Combined-BetterBow-Bow++-Autododge](https://www.nexusmods.com/monsterhunterwilds/mods/4247)
+# Combined Weapon Mods — Bow & HBG for Monster Hunter Wilds
 
-A merged bow overhaul for Monster Hunter Wilds that combines the best features of [Better Bow](https://www.nexusmods.com/monsterhunterwilds/mods/539) and [Bow Plus Plus](https://www.nexusmods.com/monsterhunterwilds/mods/1905) into a single, conflict-free mod. Includes an integrated [AutoDodge](https://www.nexusmods.com/monsterhunterwilds/mods/32) wrapper with persistent English configuration.
+A collection of merged, conflict-free weapon overhauls for Monster Hunter Wilds. Each weapon gets its own combined mod that bundles multiple community mods into a single Fluffy Mod Manager install.
+
+---
+
+## Bow — Combined-BetterBow-Bow++-Autododge
+
+[Nexus Page](https://www.nexusmods.com/monsterhunterwilds/mods/4247)
 
 <img width="4847" height="3823" alt="Bow_1" src="https://github.com/user-attachments/assets/fe2c49a9-48c2-4d73-9f21-ff9b35ad0142" />
 
+Merges [Better Bow](https://www.nexusmods.com/monsterhunterwilds/mods/539) and [Bow Plus Plus](https://www.nexusmods.com/monsterhunterwilds/mods/1905) at the parameter level using MHWS Editor scripting, producing a single `Wp11GlobalActionParam.user.3` with all features from both mods plus additional QoL boosts.
 
-Both Better Bow and Bow Plus Plus modify the same game file (`Wp11GlobalActionParam.user.3`), which means they conflict when loaded together through Fluffy Mod Manager. This project solves that by merging their changes at the parameter level using MHWS Editor scripting, producing a single file that carries all features from both mods with additional quality of life boosts on top.
+### Quick install (Bow)
 
-This repo also serves as a reference for anyone looking to merge two conflicting `.user.3` mods. The full process, tools, and scripts are documented below.
+1. Download `release/Bow/`.
+2. Place `natives/` inside your Fluffy Mod Manager mods directory as a single mod.
+3. Disable standalone Better Bow and Bow Plus Plus to avoid conflicts.
+4. Enable Combined-BetterBow-Bow++.
 
-## Quick install
+Requires [REFramework](https://www.nexusmods.com/monsterhunterwilds/mods/1) and LooseFileLoader.
 
-1. Download the `release/` folder contents.
-2. Place `natives/` and `reframework/` inside your Fluffy Mod Manager mods directory as a single mod.
-3. Disable the standalone Better Bow, Bow Plus Plus, and AutoDodge mods to avoid conflicts.
-4. Enable Combined-BetterBow-Bow++-Autododge.
+### What is in the Bow merge
 
-Requires [REFramework](https://www.nexusmods.com/monsterhunterwilds/mods/1) and LooseFileLoader to be active.
-
-## What is in the merge
-
-### From Better Bow (base file)
+#### From Better Bow (base file)
 
 All nested object data is preserved from Better Bow 10x, which means multi-lockon and bottle structures remain intact at the binary level.
 
@@ -30,9 +33,7 @@ All nested object data is preserved from Better Bow 10x, which means multi-locko
 | MultiLockonNum | 4 |
 | MultiLockon nested struct | Fully preserved |
 
-### From Bow Plus Plus (overlaid changes)
-
-Bow Plus Plus contributes tighter shot grouping, faster charges, better dodge windows, and stronger coatings.
+#### From Bow Plus Plus (overlaid changes)
 
 | Parameter | Value |
 |---|---|
@@ -54,16 +55,14 @@ Bow Plus Plus contributes tighter shot grouping, faster charges, better dodge wi
 | ParryHyperArmorDamageRate | 0.2 |
 | MiniTsugiya scatter offsets | Tightened to ±0.2 |
 
-### From Extra Spice (cherry picked)
+#### From Extra Spice (cherry picked)
 
 | Parameter | Value |
 |---|---|
 | ShottingStaminaRecoverSpeedRate | 0.6 |
 | QuickShotBottleEffectiveRate | 1.1 |
 
-### Boosted beyond both mods
-
-These values were pushed higher than either mod provides individually.
+#### Boosted beyond all three mods
 
 | Parameter | Value | Comparison |
 |---|---|---|
@@ -80,46 +79,155 @@ These values were pushed higher than either mod provides individually.
 | SuperMikiriSuccessStaminaRecover | 220 | B++ had 200, BB had 130 |
 | SuperMikiriAddGauge | 55 | B++ had 50, BB had 25 |
 
-### Added in v1.1 Updates
+#### Added in v1.1
 
-These values were added to improve quality of life and balance based on recent community findings.
-
-| Parameter | Value | Comparison |
+| Parameter | Value | Notes |
 |---|---|---|
-| MikiriSuccessHATime | 1.5 | 1.0 -> 1.5 (Extended Just Dodge Hyper Armor duration) |
-| CloseBottleRangeRate | 0.75 | 0.5 -> 0.75 (Extended close-range coating distance making it more viable) |
-| MultiLockon_DegRange | 120 | 90 -> 120 (Wider multi-lockon detection cone, easier tracking) |
+| MikiriSuccessHATime | 1.5 | Extended Just Dodge Hyper Armor duration |
+| CloseBottleRangeRate | 0.75 | Extended close-range coating distance |
+| MultiLockon_DegRange | 120 | Wider multi-lockon detection cone |
 
-### AutoDodge integration
+---
 
-The release includes the AutoDodge DLL plugin alongside a Lua wrapper (`auto_DualBlades_Dodge_entry.lua`) that provides:
+## HBG — Combined-HBG-Enhanced
 
-- An English configuration panel in REFramework's Script Generated UI
-- JSON based settings persistence at `reframework/data/auto_dodge_config.json`
-- Configurable dodge threshold (default 0.1, tunable from the in-game panel)
+<!-- HBG_IMAGE_PLACEHOLDER — replace this comment with your screenshot embed -->
 
-The DLL's internal UI is in Chinese with a hardcoded 0.5 threshold. The wrapper bypasses both issues by injecting configuration at the REFramework level.
+Pure QoL and survivability overhaul for Heavy Bowgun. No damage multipliers — focused on guard effectiveness, energy recovery, special ammo accessibility, and mobility. Bundles five community mods into a single install alongside a custom `Wp12GlobalActionParam.user.3` produced with MHWS Editor scripting.
+
+### Quick install (HBG)
+
+1. Run `scripts/merge_hbg.cs` in MHWS Editor against `Wp12GlobalActionParam.user.3` and save the output to `release/HBG/natives/STM/GameDesign/Player/ActionData/Wp12/GlobalParam/`.
+2. Download `release/HBG/`.
+3. Place its contents into your Fluffy Mod Manager mods directory as a single mod.
+4. Disable the standalone versions of all bundled mods listed below.
+5. Enable Combined-HBG-Enhanced.
+
+Requires [REFramework](https://www.nexusmods.com/monsterhunterwilds/mods/1) and LooseFileLoader.
+
+### Bundled mods (HBG)
+
+| Mod | Source | What it does |
+|---|---|---|
+| [Infinite Bowgun Ammo](https://www.nexusmods.com/monsterhunterwilds/mods/214) | `itemData.user.3` binary | All ammo types never deplete |
+| [Bowgun Critical Distance Fixed](https://www.nexusmods.com/monsterhunterwilds/mods/3005) | `PlayerSkillParam.user.3` binary | Zero minimum critical distance — point blank shots deal full damage |
+| [BG Ammo Tweaks](https://www.nexusmods.com/monsterhunterwilds/mods/3370) | Lua (15 cap + All SL Maxed) | Enables all ammo types on HBG, sets 15 round capacity, maxes shell levels |
+| [Full-Auto Bowguns](https://www.nexusmods.com/monsterhunterwilds/mods/1126) | Lua | Hold trigger to auto-fire and auto-reload |
+| [More Gatlin Fun](https://www.nexusmods.com/monsterhunterwilds/mods/1012) | Superseded by merge script | Original set MinUseEnergy to 0.01; our script uses 0.1 for balance |
+
+### What the merge script changes (Wp12GlobalActionParam)
+
+All changes are QoL only — no damage multipliers.
+
+#### Guard / Shield
+
+| Parameter | Vanilla | Ours |
+|---|---|---|
+| GuardPower_S | 14 | 35 |
+| GuardPower_M | 20 | 50 |
+| GuardDamageReduceRate_S | 0 | 0.6 |
+| GuardDamageReduceRate_M | 0.1 | 0.7 |
+| GuardDamageReduceRate_L | 0.2 | 0.8 |
+| GuardDamageReduceRate_Tech | 0 | 0.6 |
+| GuardDamageReduceRate_Tech_M | 0.2 | 0.8 |
+
+#### Ammo capacity
+
+| Parameter | Vanilla | Ours |
+|---|---|---|
+| AmmoLimit_Normal | 7 | 15 |
+| AmmoLimit_Penetrate | 3 | 15 |
+| AmmoLimit_ShotGun | 5 | 15 |
+
+#### Energy / Wyvernheart recovery
+
+| Parameter | Vanilla | Ours |
+|---|---|---|
+| Energy_AutoRecoverSpeed | 100 | 500 |
+| Energy_AutoRecoverReserveRate | 0.2 | 0.01 |
+| Energy_ShotGunShootRecover | 2.4 | 20 |
+| Energy_StealthShotRecover | 30 | 100 |
+| Energy_CustomEfficiency_Fast | 1.1 | 2.0 |
+| Energy_CustomEfficiency_Slow | 0.9 | 1.5 |
+
+#### Gatling (Wyvernheart fire mode)
+
+| Parameter | Vanilla | MoreGatlinFun | Ours |
+|---|---|---|---|
+| GatlingBullet MinUseEnergy | 2.5 | 0.01 | 0.1 |
+| GatlingBullet_ShootInterval | 0.1 | — | 0.085 |
+
+#### Special ammo — energy cost & QoL
+
+| Parameter | Vanilla | Ours |
+|---|---|---|
+| EnergyLaser MinUseEnergy | 20 | 8 |
+| ParryBullet MinUseEnergy | 15 | 5 |
+| ParryBulletRange | 7 | 12 |
+| EnergyGrenade MinUseEnergy | 15 | 5 |
+| EnergyGrenadeBullet_SpreadRange | 8 | 12 |
+| EnergyGrenadeBullet_MaxRange | 15 | 20 |
+| WeakPointSnipeBullet_MaxBulletNum | 3 | 5 |
+| WeakPointSnipeBullet_AddBulletTime | 23 | 12 |
+| RyuugekiChargeTimer | 1.5 | 0.8 |
+| Ryuugeki_Range | 6.5 | 10 |
+
+#### Parry (Focus Blast) energy recovery on hit
+
+| Level | HitRecover vanilla → ours | SuccessRecover vanilla → ours |
+|---|---|---|
+| 0 | 10 → 20 | 25 → 60 |
+| 1 | 10 → 20 | 25 → 60 |
+| 2 | 15 → 25 | 30 → 70 |
+| 3 | 20 → 30 | 35 → 80 |
+
+#### Mobility
+
+| Parameter | Vanilla | Ours |
+|---|---|---|
+| TurnSpeed | 400 | 600 |
+
+---
 
 ## Repo structure
 
 ```
-├── release/                 # Drop this into Fluffy Mod Manager
-│   ├── modinfo.ini
-│   ├── natives/...          # Merged Wp11GlobalActionParam.user.3
-│   └── reframework/         # AutoDodge plugin + Lua config wrapper
-├── source/                  # Original unmodified mod files
-│   ├── better-bow/          # Wp11GlobalActionParam.user.3 (10x bottles + multilockon)
-│   ├── bow-plusplus/         # Wp11GlobalActionParam.user.3 (spread + coatings + dodge)
-│   ├── extra-spice/         # Wp11GlobalActionParam.user.3 (stamina + damage tweaks)
-│   └── autododge/           # DLL + Lua entry point
+├── release/
+│   ├── Bow/                         # Fluffy Mod Manager drop-in for Bow
+│   │   ├── modinfo.ini
+│   │   └── natives/                 # Merged Wp11GlobalActionParam.user.3
+│   └── HBG/                         # Fluffy Mod Manager drop-in for HBG
+│       ├── modinfo.ini
+│       ├── natives/
+│       │   └── STM/GameDesign/
+│       │       ├── Common/Item/
+│       │       │   └── itemData.user.3              # Infinite ammo
+│       │       └── Player/ActionData/
+│       │           ├── Common/GlobalParam/Part/
+│       │           │   └── PlayerSkillParam.user.3  # Zero min crit distance
+│       │           └── Wp12/GlobalParam/
+│       │               └── Wp12GlobalActionParam.user.3  # Merge script output
+│       └── reframework/autorun/
+│           ├── fabg.lua + fabg/                     # Full-auto bowgun
+│           ├── BG_Ammo_Tweaks_-_15_Ammo_Cap_(HeavyBowgun).lua
+│           └── BG_Ammo_Tweaks_-_All_SL_Maxed_(HeavyBowgun).lua
+├── source/
+│   ├── BOW/
+│   │   ├── better-bow/
+│   │   ├── bow-plusplus/
+│   │   └── extra-spice/
+│   └── HBG/                         # Original source files for all bundled HBG mods
 ├── scripts/
-│   ├── merge_script.cs      # MHWS Editor script that applies the merge
-│   └── export_data.cs       # MHWS Editor script that exports .user.3 to JSON
-├── exports/                 # JSON dumps of each source file for diffing
+│   ├── merge_script.cs              # Bow merge (MHWS Editor)
+│   ├── merge_hbg.cs                 # HBG merge (MHWS Editor)
+│   ├── export_data.cs               # Export Wp11 to JSON
+│   └── export_hbg.cs                # Export Wp12 to JSON (filters WPF bloat)
+├── exports/
 │   ├── better-bow.json
 │   ├── bow-plusplus.json
 │   └── extra-spice.json
-├── Cover.png
+├── export.json                      # Current merged Bow params
+├── export-hbg.json                  # Current merged HBG params
 └── README.md
 ```
 
@@ -129,47 +237,52 @@ This section documents the full process for anyone who wants to replicate it or 
 
 ### Prerequisites
 
-- [MHWS Editor](https://www.nexusmods.com/monsterhunterwilds/mods/32) (Synthlight's RE Engine .user file editor)
+- [MHWS Editor](https://www.nexusmods.com/monsterhunterwilds/mods/401) (Synthlight's RE Engine .user file editor)
 - The source `.user.3` files from each mod you want to merge
 
 ### Step 1: Export each mod's data to JSON
 
-Open each `.user.3` file in MHWS Editor and use the Run Code feature to dump all parameters to a readable JSON file. The export script is at `scripts/export_data.cs`. Paste it into the Run Code window, hit Run, and it writes a JSON file to disk.
+Open each `.user.3` file in MHWS Editor and use the Run Code feature to dump all parameters to a readable JSON file. Scripts are at `scripts/export_data.cs` (Bow / Wp11) and `scripts/export_hbg.cs` (HBG / Wp12). The HBG script filters out WPF color metadata that would otherwise bloat the output to 500KB+.
 
-This gives you a complete, human readable view of every field and nested object, which is critical because `.user.3` files are binary RSZ format with nested structs that simple hex diffing will miss.
+Paste the script into the Run Code window, hit Run, and it writes a JSON file to disk.
 
 ### Step 2: Diff the exports
 
-Compare the JSON exports to identify which fields each mod changes. The key categories are:
+Compare JSON exports to identify which fields each mod changes. The key categories are:
 
-1. **Scatter lists** (shot spread patterns, arrays of X/Y coordinates)
-2. **Simple floats/ints** (charge times, damage rates, stamina values)
-3. **Nested objects** (BottleParamData with SetNum per coating, MultiLockonParam with detection config)
-
-A Python script or any JSON diff tool works for this.
+1. **Scatter lists** (shot spread patterns, arrays of X/Y coordinates) — Bow only
+2. **Simple floats/ints** (charge times, damage rates, energy costs)
+3. **Nested objects** (BottleParamData, MultiLockonParam, special ammo ChargeInfo)
 
 ### Step 3: Write a merge script
 
-The merge script (`scripts/merge_script.cs`) is a C# snippet that runs inside MHWS Editor. It opens one mod's file as the base, then programmatically sets each field to the desired merged value. This approach is reliable because it uses the editor's own typed API, meaning it correctly handles nested RSZ objects, array indexing, and type casting.
-
-Open the base file in MHWS Editor, paste the merge script into Run Code, run it, then save the result.
+The merge scripts (`scripts/merge_script.cs`, `scripts/merge_hbg.cs`) are C# snippets that run inside MHWS Editor. Open the base file, paste the script into Run Code, run it, then save. The editor's typed API correctly handles nested RSZ objects, array indexing, and type casting.
 
 ### Step 4: Verify
 
-Export the merged file using the same JSON export script and diff it against your expectations. Every field should match your intended values.
+Export the merged file using the same JSON export script and diff it against your expectations.
 
-### Why binary patching does not work for these files
+### Why binary patching does not work
 
-Early attempts at merging via raw byte offset patching failed because `.user.3` files use RE Engine's RSZ serialization format. Fields are not at fixed offsets you can predict from the editor view. Nested objects ("Open" buttons in the editor) contain their own serialized data, and patching the wrong bytes corrupts the nested structures silently. The game loads the file without error but the values have no effect.
+`.user.3` files use RE Engine's RSZ serialization format — fields are not at fixed offsets, and nested objects contain their own serialized data. Patching the wrong bytes corrupts nested structures silently. Using the MHWS Editor scripting API avoids this entirely.
 
-Using the MHWS Editor's scripting API avoids this entirely because it operates on the deserialized object model.
+---
 
 ## Credits
 
+### Bow mod
 - [Better Bow](https://www.nexusmods.com/monsterhunterwilds/mods/539) by its original author
 - [Bow Plus Plus](https://www.nexusmods.com/monsterhunterwilds/mods/1905) by its original author
-- [AutoDodge (auto_DualBlades_Dodge)](https://www.nexusmods.com/monsterhunterwilds/mods/32) by its original author
-- [MHWS Editor](https://www.nexusmods.com/monsterhunterwilds/mods/32) by Synthlight
+
+### HBG mod
+- [Infinite Bowgun Ammo](https://www.nexusmods.com/monsterhunterwilds/mods/214) by its original author
+- [Bowgun Critical Distance Fixed](https://www.nexusmods.com/monsterhunterwilds/mods/3005) by its original author
+- [BG Ammo Tweaks](https://www.nexusmods.com/monsterhunterwilds/mods/3370) by LordGregory
+- [Full-Auto Bowguns](https://www.nexusmods.com/monsterhunterwilds/mods/1126) by its original author
+- [More Gatlin Fun](https://www.nexusmods.com/monsterhunterwilds/mods/1012) by its original author (energy cost rebalanced in our merge)
+
+### Tools
+- [MHWS Editor](https://www.nexusmods.com/monsterhunterwilds/mods/401) by Synthlight
 - Merge work and repo by Abeelha
 
 ---
