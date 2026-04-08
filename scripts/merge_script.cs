@@ -29,7 +29,7 @@ root.ShottingStaminaRecoverSpeedRate = 0.6f;  // ES (best: 50% penalty reduction
 root.CloseBottleAttackUpRate = 1.7f;    // B++=1.6, ES=1.45, boosted
 root.StrongBottleAttackUpRate = 1.6f;   // B++=1.5, boosted
 root.CloseBottleGravityRate = 6;        // B++ more pierce procs
-root.CloseBottleRangeRate = 0.5f;       // B++ tighter crit range
+root.CloseBottleRangeRate = 0.75f;      // Extended close-range coating distance
 root.QuickShotBottleEffectiveRate = 1.1f; // ES value
 
 // === STATUS BOTTLE ATK - boosted ===
@@ -57,11 +57,13 @@ root.MikiriSuccessStaminaRecover = 120; // B++=100, boosted
 root.MikiriAddGauge = 25;              // B++=20, boosted
 root.SuperMikiriSuccessStaminaRecover = 220; // B++=200, boosted
 root.SuperMikiriAddGauge = 55;         // B++=50, boosted
+root.MikiriSuccessHATime = 1.5f;       // Extended Just Dodge Hyper Armor duration
 
 // === MULTILOCKON PARAM - B++ has better detection ===
 var mlp = root.MultiLockonParam[0];
 mlp.MaxDetectionDist = 30;             // B++ wider detection
 mlp.FirstTargetAddTime = 0.4f;         // B++ faster first lock
+root.MultiLockon_DegRange = 120;       // Wider detection cone for multi-lock
 
 // === MINI TSUGIYA NUM (per level) - B++ values ===
 var mtNums = root.MiniTsugiyaNum;

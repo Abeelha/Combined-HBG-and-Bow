@@ -50,7 +50,6 @@ Bow Plus Plus contributes tighter shot grouping, faster charges, better dodge wi
 | MultiLockon MaxDetectionDist | 30 |
 | MultiLockon FirstTargetAddTime | 0.4 |
 | CloseBottleGravityRate | 6 |
-| CloseBottleRangeRate | 0.5 |
 | ParryHyperArmorDamageRate | 0.2 |
 | MiniTsugiya scatter offsets | Tightened to ±0.2 |
 
@@ -79,6 +78,16 @@ These values were pushed higher than either mod provides individually.
 | MikiriAddGauge | 25 | B++ had 20, BB had 10 |
 | SuperMikiriSuccessStaminaRecover | 220 | B++ had 200, BB had 130 |
 | SuperMikiriAddGauge | 55 | B++ had 50, BB had 25 |
+
+### Added in v1.1 Updates
+
+These values were added to improve quality of life and balance based on recent community findings.
+
+| Parameter | Value | Comparison |
+|---|---|---|
+| MikiriSuccessHATime | 1.5 | 1.0 -> 1.5 (Extended Just Dodge Hyper Armor duration) |
+| CloseBottleRangeRate | 0.75 | 0.5 -> 0.75 (Extended close-range coating distance making it more viable) |
+| MultiLockon_DegRange | 120 | 90 -> 120 (Wider multi-lockon detection cone, easier tracking) |
 
 ### AutoDodge integration
 
